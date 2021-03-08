@@ -1,11 +1,26 @@
 {
   "name": "@murall/event-processor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Converts MurAll event data to pixel data",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest --watchAll --runInBand  --verbose"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MurAll-canvas/event-processor.git"
+  },
+  "keywords": [
+    "MurAll",
+    "images",
+    "pixels",
+    "Painted",
+    "paint"
+  ],
   "author": "iuwqyir",
+  "bugs": {
+    "url": "https://github.com/MurAll-canvas/event-processor/issues"
+  },
+  "homepage": "https://github.com/MurAll-canvas/event-processor#readme",
   "license": "ISC"
 }
