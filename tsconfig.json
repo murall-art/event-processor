@@ -1,0 +1,16 @@
+{
+  "preserveConstEnums": true,
+  "strictNullChecks": true,
+  "allowJs": true,
+  "target": "es2018",
+  "moduleResolution": "node",
+  "module": "CommonJS",
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
+  "lib": ["es2018"],
+  "rootDir": "src",
+  "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true
+  }
+}
