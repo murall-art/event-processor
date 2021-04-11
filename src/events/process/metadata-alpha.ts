@@ -10,5 +10,7 @@ const hasAlpha = (metadata: Array<string>): boolean => {
   return hex.slice(hex.length - 1) !== '0'
 }
 
-
-export default (metadata: Array<string>, colorList: Array<number>): number | null => hasAlpha(metadata) ? colorList[0] : null
+export default (metadata: Array<string>, colorList: Array<number>): number | undefined => {
+  if (!hasAlpha(metadata)) return
+  return colorList[0]
+}

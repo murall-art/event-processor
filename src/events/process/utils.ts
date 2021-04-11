@@ -1,4 +1,5 @@
 import { padLeft, numberToHex } from 'web3-utils'
+import { NUM_PER_GROUP } from '../constants'
 
 const hexToBytes6 = (hex: string): string => '000000'.concat(hex).slice(-6)
 
@@ -16,3 +17,15 @@ export const rgb565HexToRgba = (rgb565Hex: string): number => {
 
   return parseInt(RGBAHex)
 }
+
+// shave off '0x' at the beginning
+export const cleanHex = (data: string): string => data.slice(2)
+
+export const hexToBytes4 = (hex: string): string => String('0000' + hex).slice(-4)
+
+export const getPixelPosition = (groupNumber: number, positionWithinGroup: number): number => {
+  const firstIndexInGroup = groupNumber * NUM_PER_GROUP
+  return firstIndexInGroup + positionWithinGroup
+}
+
+export const hexToBytes2 = (hex: string): string => String('00' + hex).slice(-2)

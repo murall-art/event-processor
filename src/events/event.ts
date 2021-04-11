@@ -12,6 +12,10 @@ export type PaintedEvent = {
   blockNumber: number
 }
 
+export type Pixels = {
+  [key: number]: number
+}
+
 export const extract = (event: LogEvent): PaintedEvent | undefined => {
   if (!event.returnValues) return
 
