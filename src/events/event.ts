@@ -1,4 +1,7 @@
 import { LogEvent } from './log-event'
+import pixelDecoder from './process/pixel-decoder'
+import addGroupPixels from './process/add-group-pixels'
+import addIndividualPixels from './process/add-pixels'
 
 export type PaintedEvent = {
   colorIndex: Array<string>
@@ -30,4 +33,14 @@ export const extract = (event: LogEvent): PaintedEvent | undefined => {
     tokenId: event.returnValues.tokenId,
     blockNumber: event.blockNumber
   }
+}
+
+export const process = (event: PaintedEvent): Pixels | undefined => {
+  if (!event) return
+
+  const decodePixel = pixelDecoder(event)
+
+  let pixels = addGroupPixels({}, event.pixelGroups, event.pixelGroupIndexes, decodePixel)
+  pixels = addGroupPixels(pixels, event.transparentPixelGroups, event.transparentPixelGroupIndexes, decodePixel)
+  return addIndividualPixels(pixels, event.pixelData, decodePixel)
 }

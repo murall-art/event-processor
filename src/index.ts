@@ -1,3 +1,3 @@
-import { extract } from './events/event'
+import { extract, process } from './events/event'
 
-export { extract }
+export { extract, process }
