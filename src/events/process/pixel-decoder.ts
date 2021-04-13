@@ -12,7 +12,12 @@ type DecodedPixel = {
 
 export type DecodePixelColor = (indexByte: string) => DecodedPixel
 
-const determineColor = (pixel: number, alpha?: number) => pixel !== alpha ? pixel : TRANSPARENT
+const determineColor = (pixel: number, alpha?: number): number => pixel !== alpha ? pixel : TRANSPARENT
+
+const isVisible = (colorList: Array<number>, color: number): boolean => {
+  if (!colorList || !colorList.length) return true
+  return color !== TRANSPARENT
+}
 
 export default (event: PaintedEvent): DecodePixelColor => {
   const colorList = getColorList(event.colorIndex)
@@ -22,10 +27,10 @@ export default (event: PaintedEvent): DecodePixelColor => {
     const colourIndex = parseInt('0x'.concat(hexToBytes2(indexByte)))
     const pixel = colorList[colourIndex]
     const color = determineColor(pixel, alpha)
-    const isVisible = color !== TRANSPARENT
+    const visible = isVisible(colorList, color)
 
-    if (!isVisible) return { color, visible: isVisible }
+    if (!visible) return { color, visible }
 
-    return { color: transformColor(color), visible: color !== TRANSPARENT }
+    return { color: transformColor(color), visible }
   }
 }
