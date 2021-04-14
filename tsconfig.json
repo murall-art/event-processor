@@ -12,7 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es2018"],
     "rootDir": "./src",
-    "declaration": true
+    "declaration": true,
+    "resolveJsonModule": true
   },
   "include": [
     "./src/**/*"
