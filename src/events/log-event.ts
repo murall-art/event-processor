@@ -1,3 +1,5 @@
+import { EventData } from 'web3-eth-contract'
+
 type ReturnValues = {
   readonly artist: string
   readonly tokenId: string
@@ -10,22 +12,6 @@ type ReturnValues = {
   readonly metadata: Array<string>
 }
 
-type Raw = {
-  readonly data: string
-  readonly topics: Array<string>
-}
-
-export type LogEvent = {
-  readonly logIndex: number
-  readonly transactionIndex: number
-  readonly transactionHash: string
-  readonly blockHash: string
-  readonly blockNumber: number
-  readonly address: string
-  readonly type: string
-  readonly id: string
-  readonly event: string
-  readonly signature: string
+export type LogEvent = EventData & {
   readonly returnValues: ReturnValues
-  readonly raw: Raw
 }
