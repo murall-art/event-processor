@@ -1,3 +1,3 @@
-import { extract, process } from './events/event'
+import { extract, process, PaintedEvent } from './events/event'
 
-export { extract, process }
+export { extract, process, PaintedEvent }
