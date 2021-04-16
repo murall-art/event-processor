@@ -5,7 +5,7 @@ describe('When processing events', () => {
   // TODO: improve tests
   test('processing is done correctly', async () => {
     const event = factories.data.events.raw.genesis
-    const paintedEvent: PaintedEvent = extract(event)
+    const paintedEvent: PaintedEvent = extract(event)!
     const result = process(paintedEvent)
 
     const expected = factories.data.events.processed.genesis
