@@ -13,9 +13,9 @@ describe('When processing events', () => {
     expect(Object.keys(result!).length).toEqual(Object.keys(expected).length)
     for (const key in expected) {
       const expectedValue = expected[key]
-      const value = result[key]
-      expect(expectedValue).toBeDefined()
-      expect(expectedValue!).toEqual(value)
+      const value = result![key]
+      expect(value).toBeDefined()
+      expect(expectedValue).toEqual(value)
     }
   })
 })
