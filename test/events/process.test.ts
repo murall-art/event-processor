@@ -9,9 +9,13 @@ describe('When processing events', () => {
     const result = process(paintedEvent)
 
     const expected = factories.data.events.processed.genesis
-    expect(Object.keys(result).length).toEqual(Object.keys(expected).length)
+    expect(result).toBeDefined()
+    expect(Object.keys(result!).length).toEqual(Object.keys(expected).length)
     for (const key in expected) {
-      expect(expected[key]).toEqual(result[key])
+      const expectedValue = expected[key]
+      const value = result[key]
+      expect(expectedValue).toBeDefined()
+      expect(expectedValue!).toEqual(value)
     }
   })
 })
