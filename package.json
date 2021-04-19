@@ -1,6 +1,6 @@
 {
   "name": "@murall/event-processor",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Converts MurAll event data to pixel data",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
