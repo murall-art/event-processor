@@ -13,6 +13,7 @@ export type PaintedEvent = {
   metadata: Array<string>
   tokenId: string
   blockNumber: number
+  artist: string
 }
 
 export type Pixels = {
@@ -31,7 +32,8 @@ export const extract = (event: LogEvent): PaintedEvent | undefined => {
     transparentPixelGroupIndexes: event.returnValues.transparentPixelGroupIndexes,
     metadata: event.returnValues.metadata,
     tokenId: event.returnValues.tokenId,
-    blockNumber: event.blockNumber
+    blockNumber: event.blockNumber,
+    artist: event.returnValues.artist
   }
 }
 
