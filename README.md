@@ -19,9 +19,13 @@ This package is written in TypeScript, but can be included in any javascript pro
 
 * `PaintedEvent` - TypeScript type for the `Painted` log event data
 
+* `Metadata` - TypeScript type for the token metadata
+
 * `extract(event: LogEvent): PaintedEvent` -  Extracts encoded pixel data from the smart contract log event
 
 * `process(event: PaintedEvent)` - Decodes the extracted data into pixel data, consisting of the pixel coordinate and color, that can be drawn onto a [HTML Canvas](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+
+* `parseMetadata(event: PaintedEvent)` - Parses the metadata in the `PaintedEvent` to return the `name`, `number`, `seriesId` and `hasAlpha` properties. Raw metadata is just a string array
 
 
 ## Feedback
